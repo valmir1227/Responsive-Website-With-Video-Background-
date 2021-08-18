@@ -169,6 +169,7 @@ section {
   }
 
   .menu-btn {
+    position: relative;
     background: url(/images/menu.png) no-repeat;
     background-size: 30px;
     background-position: center;
@@ -176,7 +177,7 @@ section {
     height: 40px;
     cursor: pointer;
     filter: invert(1);
-
+    z-index: 9999;
     transition: 0.3s ease;
   }
 
@@ -186,7 +187,7 @@ section {
     background-position: center;
 
     transition: 0.3s ease;
-    z-index: 999;
+    z-index: 9999;
   }
 
   header .navigation.active {
