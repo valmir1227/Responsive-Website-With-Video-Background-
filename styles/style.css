@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 200px;
+  transition: 0.5 ease;
+}
+
+header .logo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  text-transform: uppercase;
+}
+
+header .logo span {
+  color: #ff5517;
+}
+
+header .navigation {
+  position: relative;
+}
+
+header .navigation .navigation-items a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+header .navigation .navigation-items a::before {
+  position: absolute;
+  z-index: 999;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff5517;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before {
+  width: 100%;
+}
+
+section {
+  padding: 100px 200px;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: #2c2c2c;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  z-index: 777;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 70, 198, 0.3);
+}
+
+.home .content {
+  width: 70%;
+  position: relative;
+  z-index: 888;
+}
+
+.home .content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 70px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.home .content p {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 65px;
+}
+
+.home .content a {
+  text-decoration: none;
+  background: #ff5517;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 2px;
+  font-weight: 500;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.social-media {
+  position: absolute;
+  z-index: 888;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media a {
+  font-size: 1.3rem;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: scale(1.5);
+}
+
+.social-media a:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.video-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 000;
+  object-fit: cover;
+}
+
+@media (max-width: 1040px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 100px 20px;
+  }
+
+  .home .content {
+    width: 90%;
+  }
+
+  .home .social-media {
+    right: 15px;
+  }
+
+  header .navigation {
+    display: none;
+  }
+
+  .menu-btn {
+    background: url(/images/menu.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    filter: invert(1);
+
+    transition: 0.3s ease;
+  }
+
+  .menu-btn.active {
+    background: url(/images/close.png) no-repeat;
+    background-size: 25px;
+    background-position: center;
+
+    transition: 0.3s ease;
+    z-index: 999;
+  }
+
+  header .navigation.active {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    animation: slide-right 1s ease;
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(500px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .navigation.active .navigation-items {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(1, 1, 1, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header .navigation .navigation-items a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 8px;
+  }
+
+  header .navigation.active .navigation-items {
+    background: rgba(255, 85, 23, 1);
+    width: 50%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 0.2);
+  }
+}
+
+@media (max-width: 699px) {
+  header .navigation.active .navigation-items {
+    width: 60%;
+  }
+}
